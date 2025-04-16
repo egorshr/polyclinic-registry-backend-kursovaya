@@ -1,4 +1,4 @@
-package com.example.entities.discount.model
+package com.example.features.discount.model
 
 import kotlinx.serialization.Serializable
 

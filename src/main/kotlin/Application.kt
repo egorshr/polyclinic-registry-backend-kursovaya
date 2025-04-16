@@ -1,6 +1,6 @@
 package com.example
 
-import com.example.db.configureDatabases
+import com.example.database.configureDatabases
 import com.example.plugins.configureFrameworks
 import com.example.plugins.configureRouting
 import com.example.plugins.configureSecurity

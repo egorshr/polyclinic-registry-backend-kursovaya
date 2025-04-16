@@ -1,4 +1,4 @@
-package com.example.entities.patient.model
+package com.example.features.patient.model
 
 import com.example.utils.Gender
 import kotlinx.datetime.LocalDate

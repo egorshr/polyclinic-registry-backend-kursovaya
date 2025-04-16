@@ -1,8 +1,8 @@
-package com.example.entities.visit.table
+package com.example.features.visit.table
 
-import com.example.entities.discount.table.Discounts
-import com.example.entities.employee.table.Employees
-import com.example.entities.patient.table.Patients
+import com.example.features.discount.table.Discounts
+import com.example.features.employee.table.Employees
+import com.example.features.patient.table.Patients
 import org.jetbrains.exposed.sql.Table
 import org.jetbrains.exposed.sql.kotlin.datetime.datetime
 import org.jetbrains.exposed.sql.kotlin.datetime.timestamp

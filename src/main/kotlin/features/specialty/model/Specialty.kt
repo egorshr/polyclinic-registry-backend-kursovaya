@@ -1,4 +1,4 @@
-package com.example.entities.specialty.model
+package com.example.features.specialty.model
 
 import kotlinx.serialization.Serializable
 

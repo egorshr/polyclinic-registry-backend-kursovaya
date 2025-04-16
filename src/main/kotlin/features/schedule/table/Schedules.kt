@@ -1,6 +1,6 @@
-package com.example.entities.schedule.table
+package com.example.features.schedule.table
 
-import com.example.entities.employee.table.Employees
+import com.example.features.employee.table.Employees
 import org.jetbrains.exposed.sql.Table
 import org.jetbrains.exposed.sql.kotlin.datetime.date
 import org.jetbrains.exposed.sql.kotlin.datetime.time

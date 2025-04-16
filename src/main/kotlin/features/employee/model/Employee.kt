@@ -1,6 +1,6 @@
-package com.example.entities.employee.model
+package com.example.features.employee.model
 
-import com.example.entities.specialty.model.Specialty
+import com.example.features.specialty.model.Specialty
 import com.example.utils.Gender
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.LocalTime

@@ -1,6 +1,6 @@
-package com.example.entities.social_status.table
+package com.example.features.social_status.table
 
-import com.example.entities.discount.table.Discounts
+import com.example.features.discount.table.Discounts
 import org.jetbrains.exposed.sql.Table
 
 object SocialStatuses : Table("social_statuses") {

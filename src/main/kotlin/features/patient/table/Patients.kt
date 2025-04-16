@@ -1,4 +1,4 @@
-package com.example.entities.patient.table
+package com.example.features.patient.table
 
 import com.example.utils.Gender
 import org.jetbrains.exposed.sql.Table

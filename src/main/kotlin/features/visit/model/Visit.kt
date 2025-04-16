@@ -1,8 +1,8 @@
-package com.example.entities.visit.model
+package com.example.features.visit.model
 
-import com.example.entities.discount.model.Discount
-import com.example.entities.employee.model.Employee
-import com.example.entities.patient.model.Patient
+import com.example.features.discount.model.Discount
+import com.example.features.employee.model.Employee
+import com.example.features.patient.model.Patient
 import kotlinx.datetime.LocalDateTime
 
 data class Visit(
