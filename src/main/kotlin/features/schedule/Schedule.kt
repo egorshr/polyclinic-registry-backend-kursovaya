@@ -1,6 +1,6 @@
-package com.example.features.schedule.model
+package com.example.features.schedule
 
-import com.example.features.employee.model.Employee
+import com.example.features.employee.Employee
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.LocalTime
 import kotlinx.serialization.Serializable

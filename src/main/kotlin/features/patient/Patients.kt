@@ -1,4 +1,4 @@
-package com.example.features.patient.table
+package com.example.features.patient
 
 import com.example.utils.Gender
 import org.jetbrains.exposed.sql.Table
@@ -6,7 +6,7 @@ import org.jetbrains.exposed.sql.kotlin.datetime.date
 
 object Patients : Table("patients") {
     val id = integer("id").autoIncrement()
-    val gender = enumerationByName("gender", 10, Gender::class)
+    val gender = enumerationByName<Gender>("gender", 10)
     val firstName = varchar("first_name", 32)
     val middleName = varchar("middle_name", 36).nullable()
     val lastName = varchar("last_name", 64)

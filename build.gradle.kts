@@ -1,10 +1,11 @@
-val exposed_version: String by project
-val h2_version: String by project
-val koin_version: String by project
-val kotlin_version: String by project
-val logback_version: String by project
-val postgres_version: String by project
-val datetime_version: String by project
+val exposedVersion: String by project
+val h2Version: String by project
+val koinVersion: String by project
+val kotlinVersion: String by project
+val logbackVersion: String by project
+val postgresVersion: String by project
+val datetimeVersion: String by project
+val flywayVersion: String by project
 
 plugins {
     kotlin("jvm") version "2.1.20"
@@ -27,27 +28,36 @@ repositories {
 }
 
 dependencies {
-
-    implementation("org.jetbrains.kotlinx:kotlinx-datetime:${datetime_version}")
-    implementation("org.jetbrains.exposed:exposed-kotlin-datetime:$exposed_version")
-
+    //datetime
+    implementation("org.jetbrains.kotlinx:kotlinx-datetime:$datetimeVersion")
+    implementation("org.jetbrains.exposed:exposed-kotlin-datetime:$exposedVersion")
+    //migration
+    implementation("org.jetbrains.exposed:exposed-migration:$exposedVersion")
+    implementation("org.flywaydb:flyway-core:$flywayVersion")
 
     implementation("io.ktor:ktor-server-core")
     implementation("io.ktor:ktor-server-content-negotiation")
     implementation("io.ktor:ktor-serialization-kotlinx-json")
-    implementation("org.jetbrains.exposed:exposed-core:$exposed_version")
-    implementation("org.jetbrains.exposed:exposed-jdbc:$exposed_version")
-    implementation("com.h2database:h2:$h2_version")
-    implementation("org.postgresql:postgresql:$postgres_version")
-    implementation("io.insert-koin:koin-ktor:$koin_version")
-    implementation("io.insert-koin:koin-logger-slf4j:$koin_version")
+    implementation("org.jetbrains.exposed:exposed-core:$exposedVersion")
+    implementation("org.jetbrains.exposed:exposed-jdbc:$exposedVersion")
+    implementation("com.h2database:h2:$h2Version")
+    implementation("org.postgresql:postgresql:$postgresVersion")
+    implementation("io.insert-koin:koin-ktor:$koinVersion")
+    implementation("io.insert-koin:koin-logger-slf4j:$koinVersion")
     implementation("io.ktor:ktor-server-auth")
     implementation("io.ktor:ktor-server-auth-jwt")
     implementation("io.ktor:ktor-server-host-common")
     implementation("io.ktor:ktor-server-status-pages")
     implementation("io.ktor:ktor-server-netty")
-    implementation("ch.qos.logback:logback-classic:$logback_version")
+    implementation("ch.qos.logback:logback-classic:$logbackVersion")
     implementation("io.ktor:ktor-server-config-yaml")
     testImplementation("io.ktor:ktor-server-test-host")
-    testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
+    testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion")
+}
+
+tasks.register<JavaExec>("generateMigrationScript") {
+    group = "application"
+    description = "Generate migration script"
+    classpath = sourceSets.main.get().runtimeClasspath
+    mainClass = "GenerateMigrationScriptKt"
 }

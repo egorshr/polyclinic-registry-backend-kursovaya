@@ -1,3 +1,3 @@
 package com.example.utils
 
-enum class Gender { MALE, FEMALE }
+enum class Gender { Male, Female }

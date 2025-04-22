@@ -10,3 +10,5 @@ storage:
   jdbcURL: "jdbc:postgresql://localhost:5432/polyclinicdb"
   user: "postgres"
   password: "password"
+
+

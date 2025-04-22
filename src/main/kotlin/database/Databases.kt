@@ -1,6 +1,9 @@
 package com.example.database
 
+import com.example.migrations.MIGRATIONS_DIRECTORY
+import com.example.migrations.generateMigrationScript
 import io.ktor.server.application.*
+import org.flywaydb.core.Flyway
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.transaction
 
@@ -15,9 +18,18 @@ fun Application.configureDatabases() {
         password = password,
         driver = driver
     )
+    val flyway = Flyway.configure()
+        .dataSource(url, user, password)
+        .locations("/$MIGRATIONS_DIRECTORY")
+        .baselineOnMigrate(true)
+        .load()
 
-//    transaction {
-//        SchemaUtils.create(SocialStatuses)
-//
-//    }
+    transaction {
+        generateMigrationScript()
+    }
+
+    transaction {
+        flyway.migrate()
+    }
+
 }

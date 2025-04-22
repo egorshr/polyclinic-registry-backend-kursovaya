@@ -1,4 +1,4 @@
-package com.example.features.service.model
+package com.example.features.service
 
 import kotlinx.serialization.Serializable
 

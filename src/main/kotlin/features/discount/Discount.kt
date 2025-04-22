@@ -1,9 +1,9 @@
-package com.example.features.discount.model
+package com.example.features.discount
 
 import kotlinx.serialization.Serializable
 
 @Serializable
 data class Discount(
     val id: Int,
-    val percent: Short
+    val percent: Short,
 )

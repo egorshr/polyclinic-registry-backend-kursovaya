@@ -1,6 +1,6 @@
-package com.example.features.social_status.model
+package com.example.features.social_status
 
-import com.example.features.discount.model.Discount
+import com.example.features.discount.Discount
 import kotlinx.serialization.Serializable
 
 @Serializable

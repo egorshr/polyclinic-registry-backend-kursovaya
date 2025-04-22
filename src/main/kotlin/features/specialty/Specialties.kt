@@ -1,4 +1,4 @@
-package com.example.features.specialty.table
+package com.example.features.specialty
 
 import org.jetbrains.exposed.sql.Table
 

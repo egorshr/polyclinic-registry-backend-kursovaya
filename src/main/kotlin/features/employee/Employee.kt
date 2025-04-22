@@ -1,11 +1,10 @@
-package com.example.features.employee.model
+package com.example.features.employee
 
-import com.example.features.specialty.model.Specialty
+import com.example.features.specialty.Specialty
 import com.example.utils.Gender
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.LocalTime
 import kotlinx.serialization.Serializable
-
 
 @Serializable
 data class Employee(

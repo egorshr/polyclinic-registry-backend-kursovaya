@@ -1,4 +1,4 @@
-package com.example.features.discount.table
+package com.example.features.discount
 
 import org.jetbrains.exposed.sql.Table
 
