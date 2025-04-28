@@ -14,7 +14,6 @@ object Employees : Table("employees") {
     val lastName = varchar("last_name", 64)
     val birthday = date("birthday")
     val gender = enumerationByName<Gender>("gender", 10)
-    val jobTitle = varchar("job_title", 36)
     val phoneNumber = varchar("phone_number", 18)
     val durationOfVisit = time("duration_of_visit").nullable()
     val username = varchar("username", 100)

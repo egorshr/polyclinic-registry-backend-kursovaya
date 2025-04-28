@@ -6,7 +6,6 @@ val logbackVersion: String by project
 val postgresVersion: String by project
 val datetimeVersion: String by project
 val flywayVersion: String by project
-
 plugins {
     kotlin("jvm") version "2.1.20"
     id("io.ktor.plugin") version "3.1.2"
@@ -34,6 +33,7 @@ dependencies {
     //migration
     implementation("org.jetbrains.exposed:exposed-migration:$exposedVersion")
     implementation("org.flywaydb:flyway-core:$flywayVersion")
+    implementation("org.flywaydb:flyway-database-postgresql:$flywayVersion")
 
     implementation("io.ktor:ktor-server-core")
     implementation("io.ktor:ktor-server-content-negotiation")
@@ -55,9 +55,4 @@ dependencies {
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion")
 }
 
-tasks.register<JavaExec>("generateMigrationScript") {
-    group = "application"
-    description = "Generate migration script"
-    classpath = sourceSets.main.get().runtimeClasspath
-    mainClass = "GenerateMigrationScriptKt"
-}
+
