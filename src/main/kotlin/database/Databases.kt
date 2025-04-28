@@ -17,26 +17,27 @@ import org.flywaydb.core.Flyway
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.transaction
 
-const val MIGRATIONS_DIRECTORY = "src/main/kotlin/migrations"
+const val MIGRATIONS_DIRECTORY = "src/main/resources/db/migration"
 
 fun Application.configureDatabases() {
     val url = environment.config.property("storage.jdbcURL").getString()
     val user = environment.config.property("storage.user").getString()
     val password = environment.config.property("storage.password").getString()
     val driver = environment.config.property("storage.driverClassName").getString()
-    val database = Database.connect(
+    Database.connect(
         url = url,
         user = user,
         password = password,
         driver = driver
     )
+
     val flyWay = Flyway.configure()
         .dataSource(url, user, password)
-        .locations("filesystem:$MIGRATIONS_DIRECTORY")
+        .locations("classpath:db/migration")
         .baselineOnMigrate(true)
         .load()
 
-    transaction(database) {
+    transaction {
         SchemaUtils.create(
             Discounts,
             Employees,
@@ -50,13 +51,16 @@ fun Application.configureDatabases() {
         )
     }
 
-    transaction(database) {
+
+    transaction {
         generateMigrationScript()
     }
 
-    transaction(database) {
+
+    transaction {
         flyWay.migrate()
     }
+
 
 
 }
@@ -65,6 +69,6 @@ fun generateMigrationScript() {
     MigrationUtils.generateMigrationScript(
         Services,
         scriptDirectory = MIGRATIONS_DIRECTORY,
-        scriptName = "test sript"
+        scriptName = "V3__Remove_something_column"
     )
 }

@@ -1,11 +1,13 @@
 package com.example
 
+import com.example.database.MIGRATIONS_DIRECTORY
 import com.example.database.configureDatabases
 import com.example.plugins.configureFrameworks
 import com.example.plugins.configureRouting
 import com.example.plugins.configureSecurity
 import com.example.plugins.configureSerialization
 import io.ktor.server.application.*
+import org.flywaydb.core.Flyway
 
 fun main(args: Array<String>) {
     io.ktor.server.netty.EngineMain.main(args)
