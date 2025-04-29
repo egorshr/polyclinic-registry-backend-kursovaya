@@ -4,5 +4,6 @@ import com.example.features.service.Service
 
 data class VisitService(
     val id: Int,
-    val serviceId: Service
+    val visitId: Int,
+    val serviceId: Int
 )

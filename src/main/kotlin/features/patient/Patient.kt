@@ -1,6 +1,7 @@
 package com.example.features.patient
 
 import com.example.utils.Gender
+import com.example.utils.Role
 import kotlinx.datetime.LocalDate
 import kotlinx.serialization.Serializable
 
@@ -26,5 +27,7 @@ data class Patient(
     val addressApartment: Int,
     val username: String,
     val email: String,
-    val password: String
+    val password: String,
+    val role: Role = Role.Patient,
+    val salt: String
 )

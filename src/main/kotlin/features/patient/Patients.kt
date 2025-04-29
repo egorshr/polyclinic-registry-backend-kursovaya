@@ -1,6 +1,7 @@
 package com.example.features.patient
 
 import com.example.utils.Gender
+import com.example.utils.Role
 import org.jetbrains.exposed.sql.Table
 import org.jetbrains.exposed.sql.kotlin.datetime.date
 
@@ -26,6 +27,8 @@ object Patients : Table("patients") {
     val username = varchar("username", 100)
     val email = varchar("email", 100)
     val password = varchar("password", 100)
+    val role = enumerationByName<Role>("role", 10).default(Role.Patient)
+    val salt = varchar("salt", 64)
 
     override val primaryKey = PrimaryKey(id)
 }

@@ -10,9 +10,9 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Visit(
     val id: Int,
-    val discountId: Discount,
-    val patientId: Patient,
-    val employeeId: Employee,
+    val discountId: Int,
+    val patientId: Int,
+    val employeeId: Int,
     val dateAndTime: LocalDateTime,
     val status: VisitStatus
 )

@@ -1,4 +1,3 @@
-@file:OptIn(ExperimentalDatabaseMigrationApi::class)
 
 package com.example.database
 
@@ -50,25 +49,12 @@ fun Application.configureDatabases() {
             VisitServices
         )
     }
-
-
-    transaction {
-        generateMigrationScript()
-    }
-
-
-    transaction {
-        flyWay.migrate()
-    }
-
-
-
+//    transaction {
+//        generateMigrationScript()
+//    }
+//    transaction {
+//        flyWay.migrate()
+//    }
 }
 
-fun generateMigrationScript() {
-    MigrationUtils.generateMigrationScript(
-        Services,
-        scriptDirectory = MIGRATIONS_DIRECTORY,
-        scriptName = "V3__Remove_something_column"
-    )
-}
+

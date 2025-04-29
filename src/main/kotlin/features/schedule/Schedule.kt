@@ -8,7 +8,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Schedule(
     val id: Int,
-    val employeeId: Employee,
+    val employeeId: Int,
     val date: LocalDate,
     val timeFrom: LocalTime,
     val timeTo: LocalTime

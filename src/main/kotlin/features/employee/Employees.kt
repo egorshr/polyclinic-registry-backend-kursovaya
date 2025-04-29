@@ -2,6 +2,7 @@ package com.example.features.employee
 
 import com.example.features.specialty.Specialties
 import com.example.utils.Gender
+import com.example.utils.Role
 import org.jetbrains.exposed.sql.Table
 import org.jetbrains.exposed.sql.kotlin.datetime.date
 import org.jetbrains.exposed.sql.kotlin.datetime.time
@@ -19,6 +20,8 @@ object Employees : Table("employees") {
     val username = varchar("username", 100)
     val email = varchar("email", 100)
     val password = varchar("password", 100)
+    val role = enumerationByName<Role>("role", 10).default(Role.Doctor)
+    val salt = varchar("salt", 64)
 
     override val primaryKey = PrimaryKey(id)
 }
