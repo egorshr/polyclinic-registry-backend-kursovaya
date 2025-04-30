@@ -1,23 +1,37 @@
 package com.example
 
-import com.example.database.MIGRATIONS_DIRECTORY
-import com.example.database.configureDatabases
+import com.example.features.employee.EmployeeDataSourceImpl
+import com.example.features.patient.PatientDataSourceImpl
+import com.example.plugins.configureDatabases
 import com.example.plugins.configureFrameworks
 import com.example.plugins.configureRouting
 import com.example.plugins.configureSecurity
 import com.example.plugins.configureSerialization
+import com.example.security.hashing.SHA256HashingService
+import com.example.security.token.JwtTokenService
+import com.example.security.token.TokenConfig
 import io.ktor.server.application.*
-import org.flywaydb.core.Flyway
+import io.ktor.server.netty.EngineMain
 
 fun main(args: Array<String>) {
-    io.ktor.server.netty.EngineMain.main(args)
+    EngineMain.main(args)
 }
 
 fun Application.module() {
+    val employeeDataSource = EmployeeDataSourceImpl()
+    val patientDataSource = PatientDataSourceImpl()
+    val tokenService = JwtTokenService()
+    val tokenConfig = TokenConfig(
+        issuer = environment.config.property("jwt.issuer").getString(),
+        audience = environment.config.property("jwt.audience").getString(),
+        expiresIn = 365L * 1000L * 60L * 60L * 24L,
+        secret = System.getenv("JWT_SECRET")
+    )
+    val hashingService = SHA256HashingService()
     configureSerialization()
     configureDatabases()
     configureFrameworks()
-    configureSecurity()
+    configureSecurity(tokenConfig)
     configureRouting()
 
 }

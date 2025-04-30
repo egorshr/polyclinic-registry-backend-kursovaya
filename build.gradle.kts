@@ -6,6 +6,7 @@ val logbackVersion: String by project
 val postgresVersion: String by project
 val datetimeVersion: String by project
 val flywayVersion: String by project
+val cryptographyVersion: String by project
 plugins {
     kotlin("jvm") version "2.1.20"
     id("io.ktor.plugin") version "3.1.2"
@@ -34,6 +35,10 @@ dependencies {
     implementation("org.jetbrains.exposed:exposed-migration:$exposedVersion")
     implementation("org.flywaydb:flyway-core:$flywayVersion")
     implementation("org.flywaydb:flyway-database-postgresql:$flywayVersion")
+
+    //cryptography
+    implementation("dev.whyoleg.cryptography:cryptography-core:$cryptographyVersion")
+    implementation("dev.whyoleg.cryptography:cryptography-random:$cryptographyVersion")
 
     implementation("io.ktor:ktor-server-core")
     implementation("io.ktor:ktor-server-content-negotiation")

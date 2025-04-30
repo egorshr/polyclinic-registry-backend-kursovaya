@@ -1,5 +1,4 @@
-
-package com.example.database
+package com.example.plugins
 
 
 import com.example.features.discount.Discounts

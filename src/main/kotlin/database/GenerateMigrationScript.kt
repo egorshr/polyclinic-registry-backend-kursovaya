@@ -2,7 +2,7 @@ package com.example.database
 
 import com.example.features.employee.Employees
 import com.example.features.patient.Patients
-import com.example.features.service.Services
+import com.example.plugins.MIGRATIONS_DIRECTORY
 import org.jetbrains.exposed.sql.ExperimentalDatabaseMigrationApi
 
 @OptIn(ExperimentalDatabaseMigrationApi::class)

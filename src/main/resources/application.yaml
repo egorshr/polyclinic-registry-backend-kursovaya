@@ -11,4 +11,10 @@ storage:
   user: "postgres"
   password: "password"
 
+jwt:
+  issuer: "https://jwt-provider-domain/"
+  audience: "jwt-audience"
+  domain: "https://jwt-provider-domain/"
+  realm: "ktor sample app"
+
 

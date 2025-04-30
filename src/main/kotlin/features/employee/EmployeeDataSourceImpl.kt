@@ -15,6 +15,5 @@ class EmployeeDataSourceImpl : EmployeeDataSource {
     }
     override suspend fun insertEmployee(employee: Employee): Boolean = transaction {
         Employees.insert { it.from(employee) }.insertedCount > 0
-    }
-
+    } 
 }
