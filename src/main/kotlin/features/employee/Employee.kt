@@ -11,6 +11,7 @@ import kotlinx.serialization.Serializable
 data class Employee(
     val id: Int,
     val specialtyId: Int,
+    val userId :Int,
     val firstName: String,
     val middleName: String?,
     val lastName: String,
@@ -18,9 +19,4 @@ data class Employee(
     val gender: Gender,
     val phoneNumber: String,
     val durationOfVisit: LocalTime?,
-    val username: String,
-    val email: String,
-    val password: String,
-    val role: Role,
-    val salt: String
 )

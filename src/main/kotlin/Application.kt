@@ -1,8 +1,7 @@
 package com.example
 
-import com.example.features.employee.EmployeeDataSourceImpl
-import com.example.features.patient.PatientDataSourceImpl
-import com.example.plugins.configureDatabases
+
+import com.example.database.configureDatabases
 import com.example.plugins.configureFrameworks
 import com.example.plugins.configureRouting
 import com.example.plugins.configureSecurity
@@ -18,8 +17,8 @@ fun main(args: Array<String>) {
 }
 
 fun Application.module() {
-    val employeeDataSource = EmployeeDataSourceImpl()
-    val patientDataSource = PatientDataSourceImpl()
+//    val employeeDataSource = EmployeeDataSourceImpl()
+//    val patientDataSource = PatientDataSourceImpl()
     val tokenService = JwtTokenService()
     val tokenConfig = TokenConfig(
         issuer = environment.config.property("jwt.issuer").getString(),

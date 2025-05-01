@@ -2,14 +2,14 @@ package com.example.database
 
 import com.example.features.employee.Employees
 import com.example.features.patient.Patients
-import com.example.plugins.MIGRATIONS_DIRECTORY
+import com.example.features.user.Users
 import org.jetbrains.exposed.sql.ExperimentalDatabaseMigrationApi
 
 @OptIn(ExperimentalDatabaseMigrationApi::class)
 fun generateMigrationScript() {
     MigrationUtils.generateMigrationScript(
-        Patients, Employees,
+        Users,
         scriptDirectory = MIGRATIONS_DIRECTORY,
-        scriptName = "V2__Remove_default_column"
+        scriptName = "V2__Remove_username_column"
     )
 }

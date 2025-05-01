@@ -1,4 +1,4 @@
-package com.example.plugins
+package com.example.database
 
 
 import com.example.features.discount.Discounts
@@ -8,6 +8,7 @@ import com.example.features.schedule.Schedules
 import com.example.features.service.Services
 import com.example.features.social_status.SocialStatuses
 import com.example.features.specialty.Specialties
+import com.example.features.user.Users
 import com.example.features.visit.Visits
 import com.example.features.visit_service.VisitServices
 import io.ktor.server.application.*
@@ -45,15 +46,16 @@ fun Application.configureDatabases() {
             SocialStatuses,
             Specialties,
             Visits,
-            VisitServices
+            VisitServices,
+            Users
         )
     }
-//    transaction {
-//        generateMigrationScript()
-//    }
-//    transaction {
-//        flyWay.migrate()
-//    }
+    transaction {
+        generateMigrationScript()
+    }
+    transaction {
+        flyWay.migrate()
+    }
 }
 
 

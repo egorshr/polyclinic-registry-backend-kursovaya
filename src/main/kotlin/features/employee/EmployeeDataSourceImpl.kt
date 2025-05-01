@@ -8,12 +8,12 @@ import org.jetbrains.exposed.sql.selectAll
 import org.jetbrains.exposed.sql.transactions.transaction
 
 class EmployeeDataSourceImpl : EmployeeDataSource {
-    override suspend fun getEmployeeByUsername(username: String): Employee? = transaction {
-        Employees.selectAll().where { Employees.username eq username}
+    override suspend fun getEmployeeByUserId(userId: Int): Employee? = transaction {
+        Employees.selectAll().where { Employees.userId eq userId}
             .firstOrNull()
             ?.toEmployee()
     }
     override suspend fun insertEmployee(employee: Employee): Boolean = transaction {
         Employees.insert { it.from(employee) }.insertedCount > 0
-    } 
+    }
 }

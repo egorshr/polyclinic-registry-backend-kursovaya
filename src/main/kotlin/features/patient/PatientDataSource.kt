@@ -2,6 +2,6 @@ package com.example.features.patient
 
 
 interface PatientDataSource {
-    suspend fun getPatientByUsername(username: String): Patient?
+    suspend fun getPatientByUserId(userId: Int): Patient?
     suspend fun insertPatient(patient: Patient): Boolean
 }

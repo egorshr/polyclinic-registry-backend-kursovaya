@@ -8,6 +8,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Patient(
     val id: Int,
+    val userId: Int,
     val firstName: String,
     val middleName: String?,
     val lastName: String,
@@ -25,9 +26,4 @@ data class Patient(
     val addressHouse: Int,
     val addressBody: Int,
     val addressApartment: Int,
-    val username: String,
-    val email: String,
-    val password: String,
-    val role: Role = Role.Patient,
-    val salt: String
 )

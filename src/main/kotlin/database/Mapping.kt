@@ -4,6 +4,8 @@ import com.example.features.employee.Employee
 import com.example.features.employee.Employees
 import com.example.features.patient.Patient
 import com.example.features.patient.Patients
+import com.example.features.user.User
+import com.example.features.user.Users
 import org.jetbrains.exposed.sql.ResultRow
 import org.jetbrains.exposed.sql.statements.InsertStatement
 
@@ -11,6 +13,7 @@ fun ResultRow.toEmployee(): Employee {
     return Employee(
         id = this[Employees.id],
         specialtyId = this[Employees.specialityId],
+        userId = this[Employees.userId],
         firstName = this[Employees.firstName],
         middleName = this[Employees.middleName],
         lastName = this[Employees.lastName],
@@ -18,17 +21,13 @@ fun ResultRow.toEmployee(): Employee {
         gender = this[Employees.gender],
         phoneNumber = this[Employees.phoneNumber],
         durationOfVisit = this[Employees.durationOfVisit],
-        username = this[Employees.username],
-        email = this[Employees.email],
-        password = this[Employees.password],
-        role = this[Employees.role],
-        salt = this[Employees.salt]
     )
 }
 
 fun InsertStatement<Number>.from(employee: Employee) {
     this[Employees.id] = employee.id
     this[Employees.specialityId] = employee.specialtyId
+    this[Employees.userId] = employee.userId
     this[Employees.firstName] = employee.firstName
     this[Employees.middleName] = employee.middleName
     this[Employees.lastName] = employee.lastName
@@ -36,17 +35,13 @@ fun InsertStatement<Number>.from(employee: Employee) {
     this[Employees.gender] = employee.gender
     this[Employees.phoneNumber] = employee.phoneNumber
     this[Employees.durationOfVisit] = employee.durationOfVisit
-    this[Employees.username] = employee.username
-    this[Employees.email] = employee.email
-    this[Employees.password] = employee.password
-    this[Employees.role] = employee.role
-    this[Employees.salt] = employee.salt
 }
 
 
 fun ResultRow.toPatient(): Patient {
     return Patient(
         id = this[Patients.id],
+        userId = this[Patients.userId],
         firstName = this[Patients.firstName],
         middleName = this[Patients.middleName],
         lastName = this[Patients.lastName],
@@ -63,16 +58,13 @@ fun ResultRow.toPatient(): Patient {
         addressStreet = this[Patients.addressStreet],
         addressHouse = this[Patients.addressHouse],
         addressBody = this[Patients.addressBody],
-        addressApartment = this[Patients.addressApartment],
-        username = this[Patients.username],
-        email = this[Patients.email],
-        password = this[Patients.password],
-        role = this[Patients.role],
-        salt = this[Patients.salt]
+        addressApartment = this[Patients.addressApartment]
     )
 }
 
 fun InsertStatement<Number>.from(patient: Patient) {
+    this[Patients.id] = patient.id
+    this[Patients.userId] = patient.userId
     this[Patients.firstName] = patient.firstName
     this[Patients.middleName] = patient.middleName
     this[Patients.lastName] = patient.lastName
@@ -90,9 +82,25 @@ fun InsertStatement<Number>.from(patient: Patient) {
     this[Patients.addressHouse] = patient.addressHouse
     this[Patients.addressBody] = patient.addressBody
     this[Patients.addressApartment] = patient.addressApartment
-    this[Patients.username] = patient.username
-    this[Patients.email] = patient.email
-    this[Patients.password] = patient.password
-    this[Patients.role] = patient.role
-    this[Patients.salt] = patient.salt
+
+}
+
+
+fun ResultRow.toUser(): User {
+    return User(
+        id = this[Users.id],
+        email = this[Users.email],
+        password = this[Users.password],
+        role = this[Users.role],
+        salt = this[Users.salt]
+    )
+}
+
+fun InsertStatement<Number>.from(user: User) {
+    this[Users.id] = user.id
+    this[Users.email] = user.email
+    this[Users.password] = user.password
+    this[Users.role] = user.role
+    this[Users.salt] = user.salt
+
 }
