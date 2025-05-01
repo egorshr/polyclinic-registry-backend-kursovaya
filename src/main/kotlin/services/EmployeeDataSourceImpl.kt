@@ -1,15 +1,17 @@
-package com.example.features.employee
+package com.example.services
 
 import com.example.database.from
 import com.example.database.toEmployee
-import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
+import com.example.features.employee.Employee
+import com.example.features.employee.EmployeeDataSource
+import com.example.features.employee.Employees
 import org.jetbrains.exposed.sql.insert
 import org.jetbrains.exposed.sql.selectAll
 import org.jetbrains.exposed.sql.transactions.transaction
 
 class EmployeeDataSourceImpl : EmployeeDataSource {
     override suspend fun getEmployeeByUserId(userId: Int): Employee? = transaction {
-        Employees.selectAll().where { Employees.userId eq userId}
+        Employees.selectAll().where { Employees.userId eq userId }
             .firstOrNull()
             ?.toEmployee()
     }
