@@ -1,11 +1,11 @@
 package com.example.database
 
-import com.example.features.employee.Employee
-import com.example.features.employee.Employees
-import com.example.features.patient.Patient
-import com.example.features.patient.Patients
-import com.example.features.user.User
-import com.example.features.user.Users
+import com.example.data.employee.Employee
+import com.example.data.employee.Employees
+import com.example.data.patient.Patient
+import com.example.data.patient.Patients
+import com.example.data.user.User
+import com.example.data.user.Users
 import org.jetbrains.exposed.sql.ResultRow
 import org.jetbrains.exposed.sql.statements.InsertStatement
 

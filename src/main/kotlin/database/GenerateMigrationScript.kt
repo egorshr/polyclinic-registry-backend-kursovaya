@@ -1,8 +1,6 @@
 package com.example.database
 
-import com.example.features.employee.Employees
-import com.example.features.patient.Patients
-import com.example.features.user.Users
+import com.example.data.user.Users
 import org.jetbrains.exposed.sql.ExperimentalDatabaseMigrationApi
 
 @OptIn(ExperimentalDatabaseMigrationApi::class)

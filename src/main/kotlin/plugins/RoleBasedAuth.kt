@@ -1,6 +1,6 @@
 package com.example.plugins
 
-import com.example.utils.Role
+import com.example.util.Role
 import io.ktor.http.HttpStatusCode
 import io.ktor.server.application.ApplicationCall
 import io.ktor.server.application.createRouteScopedPlugin

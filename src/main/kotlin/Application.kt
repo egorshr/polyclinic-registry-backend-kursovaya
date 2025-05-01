@@ -19,7 +19,7 @@ fun main(args: Array<String>) {
 fun Application.module() {
 //    val employeeDataSource = EmployeeDataSourceImpl()
 //    val patientDataSource = PatientDataSourceImpl()
-    val tokenService = JwtTokenService()
+ //   val tokenService = JwtTokenService()
     val tokenConfig = TokenConfig(
         issuer = environment.config.property("jwt.issuer").getString(),
         audience = environment.config.property("jwt.audience").getString(),

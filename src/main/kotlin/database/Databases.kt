@@ -1,16 +1,16 @@
 package com.example.database
 
 
-import com.example.features.discount.Discounts
-import com.example.features.employee.Employees
-import com.example.features.patient.Patients
-import com.example.features.schedule.Schedules
-import com.example.features.service.Services
-import com.example.features.social_status.SocialStatuses
-import com.example.features.specialty.Specialties
-import com.example.features.user.Users
-import com.example.features.visit.Visits
-import com.example.features.visit_service.VisitServices
+import com.example.data.discount.Discounts
+import com.example.data.employee.Employees
+import com.example.data.patient.Patients
+import com.example.data.schedule.Schedules
+import com.example.data.service.Services
+import com.example.data.social_status.SocialStatuses
+import com.example.data.specialty.Specialties
+import com.example.data.user.Users
+import com.example.data.visit.Visits
+import com.example.data.visit_service.VisitServices
 import io.ktor.server.application.*
 import org.flywaydb.core.Flyway
 import org.jetbrains.exposed.sql.*

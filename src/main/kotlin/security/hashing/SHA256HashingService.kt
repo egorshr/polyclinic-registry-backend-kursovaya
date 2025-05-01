@@ -8,15 +8,15 @@ import dev.whyoleg.cryptography.random.CryptographyRandom
 class SHA256HashingService : HashingService {
     @OptIn(ExperimentalStdlibApi::class)
     override fun generateSaltedHash(value: String, saltLength: Int): SaltedHash {
-        val saltBytes = CryptographyRandom.nextBytes(saltLength)
-        val saltHex = saltBytes.toHexString()
-        val hashBytes = CryptographyProvider.Default
+        val salt = CryptographyRandom.nextBytes(saltLength)
+        val saltAsHex = salt.toHexString()
+        val hash = CryptographyProvider.Default
             .get(SHA256)
             .hasher()
-            .hashBlocking((saltHex + value).encodeToByteArray())
+            .hashBlocking((saltAsHex + value).encodeToByteArray())
 
-        val hashHex = hashBytes.toHexString()
-        return SaltedHash(hash = hashHex, salt = saltHex)
+        val hashAsHex = hash.toHexString()
+        return SaltedHash(hash = hashAsHex, salt = saltAsHex)
     }
 
     @OptIn(ExperimentalStdlibApi::class)

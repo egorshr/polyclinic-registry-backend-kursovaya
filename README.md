@@ -11,7 +11,7 @@ Here are some useful links to get you started:
 
 ## Features
 
-Here's a list of features included in this project:
+Here's a list of data included in this project:
 
 | Name                                                                   | Description                                                                        |
 |------------------------------------------------------------------------|------------------------------------------------------------------------------------|
@@ -23,7 +23,7 @@ Here's a list of features included in this project:
 | [Koin](https://start.ktor.io/p/koin)                                   | Provides dependency injection                                                      |
 | [Authentication](https://start.ktor.io/p/auth)                         | Provides extension point for handling the Authorization header                     |
 | [Authentication JWT](https://start.ktor.io/p/auth-jwt)                 | Handles JSON Web Token (JWT) bearer authentication scheme                          |
-| [Status Pages](https://start.ktor.io/p/status-pages)                   | Provides exception handling for routes                                             |
+| [Status Pages](https://start.ktor.io/p/status-pages)                   | Provides exception handling for routing                                             |
 
 ## Building & Running
 
