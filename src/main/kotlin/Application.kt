@@ -9,7 +9,6 @@ import com.example.plugins.configureRouting
 import com.example.plugins.configureSecurity
 import com.example.plugins.configureSerialization
 import com.example.routing.authenticate
-import com.example.routing.configureRoleBasedRoutes
 import com.example.routing.getSecretInfo
 import com.example.routing.signIn
 import com.example.routing.signUp
@@ -41,13 +40,6 @@ fun Application.module() {
     configureDatabases()
     configureFrameworks()
     configureSecurity(tokenConfig)
-    configureRouting()
+    configureRouting(userDataSource, hashingService, tokenService, tokenConfig)
 
-    routing {
-        signUp(hashingService, userDataSource)
-        signIn(hashingService, userDataSource, tokenService, tokenConfig)
-        authenticate()
-        getSecretInfo()
-        configureRoleBasedRoutes()
-    }
 }
