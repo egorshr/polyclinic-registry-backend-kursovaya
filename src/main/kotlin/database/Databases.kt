@@ -50,12 +50,12 @@ fun Application.configureDatabases() {
             Users
         )
     }
-    transaction {
-        generateMigrationScript()
-    }
-    transaction {
-        flyWay.migrate()
-    }
+//    transaction {
+//        generateMigrationScript()
+//    }
+//    transaction {
+//        flyWay.migrate()
+//    }
 }
 
 

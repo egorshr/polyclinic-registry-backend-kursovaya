@@ -7,19 +7,20 @@ import org.jetbrains.exposed.sql.selectAll
 import org.jetbrains.exposed.sql.transactions.transaction
 
 class UserDataSourceImpl : UserDataSource {
-    override suspend fun getUserByEmail(email: String): User? = transaction {
+    override suspend fun getByEmail(email: String): User? = transaction {
         Users.selectAll().where { Users.email eq email }
             .firstOrNull()
             ?.toUser()
     }
 
-    override suspend fun getUserById(id: Int): User? = transaction {
+    override suspend fun getById(id: Int): User? = transaction {
         Users.selectAll().where { Users.id eq id }
             .firstOrNull()
             ?.toUser()
     }
 
-    override suspend fun insertUser(user: User): Boolean = transaction {
+    override suspend fun insert(user: User): Boolean = transaction {
         Users.insert { it.from(user) }.insertedCount > 0
     }
+
 }

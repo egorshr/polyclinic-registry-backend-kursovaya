@@ -1,7 +1,7 @@
 package com.example.data.user
 
 interface UserDataSource {
-    suspend fun getUserByEmail(email: String): User?
-    suspend fun getUserById(id: Int): User?
-    suspend fun insertUser(user: User): Boolean
+    suspend fun getByEmail(email: String): User?
+    suspend fun getById(id: Int): User?
+    suspend fun insert(user: User): Boolean
 }
