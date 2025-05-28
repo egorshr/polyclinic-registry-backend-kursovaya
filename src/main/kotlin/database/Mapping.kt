@@ -4,6 +4,8 @@ import com.example.data.employee.Employee
 import com.example.data.employee.Employees
 import com.example.data.patient.Patient
 import com.example.data.patient.Patients
+import com.example.data.service.Service
+import com.example.data.service.Services
 import com.example.data.user.User
 import com.example.data.user.Users
 import org.jetbrains.exposed.sql.ResultRow
@@ -103,4 +105,13 @@ fun InsertStatement<Number>.from(user: User) {
     this[Users.role] = user.role
     this[Users.salt] = user.salt
 
+}
+
+
+fun ResultRow.toService(): Service {
+    return Service(
+        id = this[Services.id],
+        name = this[Services.name],
+        price = this[Services.price]
+    )
 }

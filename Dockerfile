@@ -20,5 +20,5 @@ RUN gradle buildFatJar --no-daemon
 FROM amazoncorretto:21 AS runtime
 EXPOSE 8080
 RUN mkdir /app
-COPY --from=build /home/gradle/src/build/libs/*.jar /app/polyclinic-registry.jar
-ENTRYPOINT ["java","-jar","/app/polyclinic-registry.jar"]
+COPY --from=build /home/gradle/src/build/libs/*.jar /app/polyclinic.jar
+ENTRYPOINT ["java","-jar","/app/polyclinic.jar"]

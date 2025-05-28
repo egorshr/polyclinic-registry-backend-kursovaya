@@ -7,7 +7,7 @@ ktor:
 
 storage:
   driverClassName: "org.postgresql.Driver"
-  jdbcURL: "jdbc:postgresql://localhost:5432/polyclinicdb"
+  jdbcURL: "jdbc:postgresql://localhost:5432/polyclinic_db"
   user: "postgres"
   password: "password"
 

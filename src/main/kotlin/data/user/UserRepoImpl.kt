@@ -6,7 +6,7 @@ import org.jetbrains.exposed.sql.insert
 import org.jetbrains.exposed.sql.selectAll
 import org.jetbrains.exposed.sql.transactions.transaction
 
-class UserDataSourceImpl : UserDataSource {
+class UserRepoImpl : UserRepo {
     override suspend fun getByEmail(email: String): User? = transaction {
         Users.selectAll().where { Users.email eq email }
             .firstOrNull()

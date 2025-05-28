@@ -1,7 +1,7 @@
 package com.example.data.patient
 
 
-interface PatientDataSource {
+interface PatientRepo {
     suspend fun getPatientByUserId(userId: Int): Patient?
     suspend fun insertPatient(patient: Patient): Boolean
 }

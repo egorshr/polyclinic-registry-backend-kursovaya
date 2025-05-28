@@ -30,11 +30,11 @@ fun Application.configureDatabases() {
         driver = driver
     )
 
-    val flyWay = Flyway.configure()
-        .dataSource(url, user, password)
-        .locations("classpath:db/migration")
-        .baselineOnMigrate(true)
-        .load()
+//    val flyWay = Flyway.configure()
+//        .dataSource(url, user, password)
+//        .locations("classpath:db/migration")
+//        .baselineOnMigrate(true)
+//        .load()
 
     transaction {
         SchemaUtils.create(

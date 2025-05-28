@@ -9,7 +9,7 @@ import org.jetbrains.exposed.sql.kotlin.datetime.time
 
 object Employees : Table("employees") {
     val id = integer("id").autoIncrement()
-    val specialityId = reference("specialty_id", Specialties.id)
+    val specialityId = reference("speciality_id", Specialties.id)
     val userId = reference("user_id", Users.id)
     val firstName = varchar("first_name", 32)
     val middleName = varchar("middle_name", 36).nullable()

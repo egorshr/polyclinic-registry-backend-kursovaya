@@ -6,7 +6,7 @@ import org.jetbrains.exposed.sql.insert
 import org.jetbrains.exposed.sql.selectAll
 import org.jetbrains.exposed.sql.transactions.transaction
 
-class PatientDataSourceImpl : PatientDataSource {
+class PatientRepoImpl : PatientRepo {
     override suspend fun getPatientByUserId(userId: Int): Patient? = transaction {
         Patients.selectAll().where { Patients.userId eq userId }
             .firstOrNull()
